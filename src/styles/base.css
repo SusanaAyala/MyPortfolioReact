@@ -1,0 +1,530 @@
+:root {
+  /* Light Theme */
+  --primary-font: "Poppins", sans-serif;
+  --primary-bg-color: #f0f0f0;
+  --primary-text-color: #000000;
+  --secondary-color: #575757;
+  --btn-bg-color: #2196f3;
+  --cta-hover-color: #167bce;
+  --btn-bg-light: #eeeeee;
+
+  /* Dark Theme */
+  --dark-primary-bg-color: #191919;
+  --dark-primary-text-color: #ffffff;
+  --dark-secondary-color: #828282;
+  --dark-btn-bg-color: #1e88e5;
+  --dark-cta-hover-color: #0d5e8c;
+  --dark-btn-bg-light: #eeeeee;
+}
+
+.dark-theme {
+  --primary-bg-color: var(--dark-primary-bg-color);
+  --primary-text-color: var(--dark-primary-text-color);
+  --secondary-color: var(--dark-secondary-color);
+  --btn-bg-color: var(--dark-btn-bg-color);
+  --cta-hover-color: var(--dark-cta-hover-color);
+  --btn-bg-light: var(--dark-btn-bg-light);
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size:16px;
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);
+}
+
+.theme-btn {
+  position: relative;
+  left: 8.5rem;
+  bottom: 38px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  cursor: default;
+}
+
+article,
+footer,
+.hero,
+.logo-container,
+.experience,
+.cta,
+.reference,
+.portfolio-skills,
+.btn-bg,
+.portfolio,
+.skills {
+  display: flex;
+}
+
+.hero,
+.reference,
+.portfolio,
+.skills {
+  flex-direction: column;
+}
+
+.hero,
+.btn-bg,
+.portfolio,
+.skills {
+  align-items: center;
+}
+
+.hero,
+.experience,
+.wrapper {
+  text-align: center;
+}
+
+article,
+.hero,
+.logo-container,
+.portfolio,
+.skills {
+  gap: 1rem;
+}
+
+.hero-pic {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.inner-circle {
+  content: "";
+  position: absolute;
+  top: 0.1rem; /* Adjust border thickness */
+  left: 0.1rem;
+  bottom: 0.1rem;
+  right: 0.1rem;
+  border-radius: 50%;
+ /* border: 0.18rem solid var(--primary-bg-color);  Define your border thickness and color */
+  z-index: 1; /* Make sure it is above the image */
+}
+
+.hero-pic img,
+.wrapper img {
+  width: 100%;
+}
+
+.hero-pic img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top 0.4rem right -1.3rem;
+  transform: scale(1.9);
+}
+
+.hero-info h1,
+h2 {
+  font-weight: 400;
+}
+
+article p,
+.hero-info h2 {
+  color: var(--secondary-color);
+}
+
+.hero-info h2 {
+  font-size: 1rem;
+  margin: 0 0 1rem 0;
+}
+
+footer,
+.logo-container,
+.experience,
+.cta,
+.portfolio-skills,
+.btn-bg {
+  justify-content: center;
+}
+
+.theme-btn,
+.logo-container a,
+.logo-container img {
+  height: 1.5rem;
+}
+
+.experience {
+  margin: auto;
+  margin-top: 1.4rem;
+  max-width: 30rem;
+}
+
+.experience b {
+  font-weight: 500;
+}
+
+.experience h2 {
+  width: 30%;
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.cta {
+  margin-top: 1.2rem;
+}
+
+.cta,
+.btn-bg {
+  gap: 2rem;
+}
+
+.btn,
+.btn-2,
+.btn-bg {
+  border-radius: 0.7rem;
+  border: none;
+}
+
+.reference-btn {
+  border-radius: 0.7rem; /* Add this line */
+}
+
+
+
+.reference-btn:hover {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 0.7rem; /* Ensure the border-radius is consistent on hover */
+}
+
+.btn,
+.btn-2,
+.btn-bg,
+.wrapper h3 {
+  font-weight: 600;
+}
+
+.btn,
+.btn-2,
+.reference-btn,
+.btn-bg,
+.wrapper,
+.project-wrapper {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.theme-btn,
+.reference-btn:hover,
+.contact-btn:hover,
+.btn-2:hover,
+.wrapper img:hover {
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn-2:hover,
+.reference-btn:hover,
+.project-wrapper:hover,
+.logo-container a:hover {
+  transform: scale(0.98);
+}
+
+.btn:active,
+.reference-btn:active,
+.btn-2:active,
+.project-wrapper:active,
+.logo-container a:active {
+  transform: scale(1);
+}
+
+.contact-btn:hover {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.reference-btn:hover {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn,
+.btn-2 {
+  height: 3rem;
+}
+
+.btn {
+  width: 9rem;
+}
+
+.btn-2 {
+  width: 8.5rem;
+}
+
+.portfolio-skills {
+  height: 4rem;
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+.btn-bg,
+.wrapper {
+  width: 20rem;
+}
+
+article p,
+.btn-bg {
+  background-color: #dddada;
+}
+
+.hero,
+.portfolio,
+.skills {
+  margin-top: 2rem;
+}
+
+.skills {
+  display: none;
+}
+
+.wrapper img {
+  border-radius: 1rem;
+}
+
+article,
+.wrapper h3 {
+  margin-bottom: 1.5rem;
+}
+
+article {
+  flex-wrap: wrap;
+}
+
+article p {
+  border-radius: 0.5rem;
+  flex-grow: 20;
+  padding: 1rem;
+}
+
+footer {
+  margin: 3rem 0;
+}
+
+@media screen and (min-width: 900px) {
+  .skills,
+  .portfolio {
+    flex-direction: row;
+    width: 55rem;
+  }
+  .skills {
+    margin: 2rem auto 0;
+  }
+  .portfolio {
+    margin: 2rem auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .wrapper {
+    width: calc(48%);
+    flex: none;
+  }
+}
+
+
+@media screen and (max-width: 900px) {
+  .wrapper {
+    width: 25rem;
+
+}
+}
+
+* .notification-mark {
+  position: relative;
+  background: #00c750;
+  border-radius: 50%;
+  height: 10px;
+  width: 10px;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.notification-mark span {
+  width: 100%;
+  height: 100%;
+  right:  60px;
+  border-radius: 50%;
+}
+
+
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    border-color: transparent; /* Start with no border color */
+  }
+  50% {
+    transform: scale(1.5);
+    border-color: #4ade80; /* Green border color */
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    border-color: transparent; /* Reset border color */
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .md\:flex {
+      display: flex;
+
+  }
+  .gap-4 {
+    gap: 1rem;
+    margin-left: -30%;
+  }
+}
+
+@media (min-width: 600px) {
+  .md\:flex {
+      display: flex;
+
+  }
+}
+
+.gap-4 {
+  gap: 1rem;
+  margin-right: 30%;
+}
+
+.items-center {
+  align-items: center;
+} */
+
+.theme-label {
+ margin-bottom:20px;
+
+}
+
+  .testimonials {
+    text-align: center;
+    font-size: 14px;
+    padding: 20px 0px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 20px;
+  }
+
+  .testimonial-carousel {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .testimonial-slide {
+    background: #ffffff;
+    padding: 0px;
+    border-radius: 0px;
+    box-shadow: none;
+    max-width: 100%;
+    text-align: center;
+    color: #000;
+  }
+
+  .testimonial-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid rgb(249, 246, 246);
+  }
+
+  .swiper-pagination {
+    position: absolute;
+    bottom: 10px;
+  }
+
+.portfolio {
+gap:1.5rem
+}
+
+.portfolio p {
+  text-align: center;
+  padding-right: 29px;
+}
+
+   .btn-2,
+   .btn:active {
+    background-color:#e8e8e8;
+    color: rgb(18, 17, 17);
+    transition: background-color 0.3s ease;
+  }
+
+  .project-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.project-wrapper img {
+    display: block;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 200%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    padding-left: 35px;
+    border-radius: 8px;
+}
+
+.overlay h3,
+.overlay p {
+    opacity: 0;
+    transform: translateY(10px);
+    margin-bottom: 15px;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.overlay p {
+  font-size: 0.7rem;
+}
+
+.project-wrapper:hover img {
+    transform: scale(1.1);
+}
+
+.project-wrapper:hover .overlay {
+    opacity: 1;
+}
+
+.project-wrapper:hover .overlay h3,
+.project-wrapper:hover .overlay p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #ddd;
+  margin-top: -10px;
+}
+
+
