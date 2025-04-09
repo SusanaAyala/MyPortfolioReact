@@ -210,7 +210,7 @@ function Hero() {
             <h4>- Andrew Ferguson 🇬🇧</h4>
           </SwiperSlide>
           <SwiperSlide className="testimonial-slide">
-            <img src={Apple} alt="Tammy Dobson" className="testimonial-img" />
+            <img src={Apple} alt="Oliver Garas" className="testimonial-img" />
             <p style={{ fontFamily: "'Playpen Sans', cursive" }}>
               "Susie is a great person to work with. She has a fantastic attitude, a strong sense of professionalism, and an excellent eye for detail. I truly appreciate her dedication and work ethic. She will be a valuable asset to any organization she joins."
             </p>
@@ -221,7 +221,7 @@ function Hero() {
       <section className="portfolio" id="portfolio">
         <div className="wrapper project-wrapper">
           <a href="https://github.com/SusanaAyala/AutoSleek">
-            <img src={Autosleek} alt="Project 1" />
+            <img src={Autosleek} alt="AutoSleek" />
             <div className="overlay">
               <h3>AutoSleek</h3>
               <p className="subtitle">Shopify Custom Liquid, HTML, CSS, JavaScript</p>
@@ -231,7 +231,7 @@ function Hero() {
         </div>
         <div className="wrapper project-wrapper">
           <a href="https://www.ognitive.io/">
-            <img src={Oginitive} alt="Project 2" />
+            <img src={Oginitive} alt="Oginitive" />
             <div className="overlay">
               <h3>Ognitive.io</h3>
               <p className="subtitle">Next.js, Tailwind CSS, TypeScript, Firebase</p>
@@ -241,7 +241,7 @@ function Hero() {
         </div>
         <div className="wrapper project-wrapper">
           <a href="https://www.figma.com/proto/aMwc2HfjfhKTVrw0nzEQT5/Portfolio?node-id=2-426&p=f&t=ThKD4ZXc5e0dT7Zg-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1">
-            <img src={Design} alt="Project 3" />
+            <img src={Design} alt="Design" />
             <div className="overlay">
               <h3>UI/UX Designs</h3>
               <p className="subtitle"> Design thinking, Figma, Miro</p>
@@ -251,7 +251,7 @@ function Hero() {
         </div>
         <div className="wrapper project-wrapper">
           <a href="https://seraphinababyshop.com/">
-            <img src={Seraphina} alt="Project 4" />
+            <img src={Seraphina} alt="Seraphina" />
             <div className="overlay">
               <h3>Seraphina</h3>
               <p className="subtitle">Shopify Custom Liquid, HTML, CSS, JavaScript</p>
@@ -260,8 +260,8 @@ function Hero() {
           </a>
         </div>
         <div className="wrapper project-wrapper">
-          <a href="https://www.figma.com/proto/aMwc2HfjfhKTVrw0nzEQT5/UI-UX-Design-Portfolio?node-id=2-426&p=f&t=bHATwufOH9qpuuun-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1">
-            <img src={Portfolio} alt="Project 4" />
+          <a href="https://github.com/SusanaAyala/MyPortfolioReact">
+            <img src={Portfolio} alt="Portfolio" />
             <div className="overlay">
               <h3>Portfolio</h3>
               <p className="subtitle">React.js, JavaScript, HTML, CSS</p>
@@ -272,7 +272,7 @@ function Hero() {
 
         <div className="wrapper project-wrapper">
           <a href="https://congility.com/">
-            <img src={Congility} alt="Project 4"/>
+            <img src={Congility} alt="Congility"/>
             <div className="overlay">
               <h3>Congility</h3>
               <p className="subtitle">Problem Solving, PostgreSQL, Node.js, Redux, React</p>
