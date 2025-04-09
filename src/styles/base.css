@@ -327,12 +327,8 @@ footer {
 }
 
 
-@media screen and (max-width: 900px) {
-  .wrapper {
-    width: 25rem;
 
-}
-}
+
 
 * .notification-mark {
   position: relative;
@@ -501,9 +497,9 @@ gap:1.5rem
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-.overlay p {
-  font-size: 0.7rem;
-}
+/* .overlay p {
+  font-size: 0.6rem;
+} */
 
 .project-wrapper:hover img {
     transform: scale(1.1);
@@ -527,3 +523,44 @@ gap:1.5rem
 }
 
 
+@media (max-width: 899px) {
+  .overlay p {
+    font-size: 0.7rem; /* smaller screens */
+    max-width: 25rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .overlay p {
+    font-size: 0.7rem; /* larger screens */
+  }
+}
+
+
+
+@media (max-width: 899px) {
+  .wrapper {
+    width: 24rem; /* smaller screens */
+  }
+  .experience p {
+    font-size: 16px; /* smaller screens */
+  }
+   .experience {
+    max-width: 20rem;
+   }
+}
+
+
+@media screen and (max-width: 899px) {
+  .wrapper {
+    width: 23rem;
+
+}
+}
+
+@media screen and (min-width: 900px) {
+  .wrapper {
+    width: 26rem;
+
+}
+}
