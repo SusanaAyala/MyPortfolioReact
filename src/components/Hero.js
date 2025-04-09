@@ -10,19 +10,19 @@ import Autosleek from '../assets/autosleekproduct.png';
 import Congility from '../assets/congilityportal.png';
 import Portfolio from '../assets/portfoliome.png';
 import Design from '../assets/designproject.png';
-import Dark from '../assets/email_dark.png';
-import Light from '../assets/email_light.png';
-import Githubdark from '../assets/github_dark.png';
-import Githublight from '../assets/github_light.png';
-import Linkedindark from '../assets/linkedin_dark.png';
-import Linkedinlight from '../assets/linkedin_light.png';
+import Dark from '../assets/emaildark.png';
+import Light from '../assets/emaillight.png';
+import Githubdark from '../assets/githubdark.png';
+import Githublight from '../assets/githublight.png';
+import Linkedindark from '../assets/linkedindark.png';
+import Linkedinlight from '../assets/linkedinlight.png';
 import Oginitive from '../assets/ognitivej.png';
 import Seraphina from '../assets/seraphina.project.png';
 import Stuart from '../assets/stuart.png';
 import Superwlad from '../assets/superwlad.png';
 import Susie from '../assets/susieprofile.png';
-import Themelight from '../assets/theme_light.png';
-import Themdark from '../assets/theme_dark.png';
+import Themelight from '../assets/themelight.png';
+import Themedark from '../assets/themedark.png';
 
 function Hero() {
   useEffect(() => {
@@ -60,6 +60,14 @@ function Hero() {
     const linkedinLogo = document.querySelector('img[alt="linkedin logo"]');
     const emailLogo = document.querySelector('img[alt="email logo"]');
 
+  // Debugging: Check if all elements are found
+  if (!toggleThemeButton) {
+    console.error("Toggle theme button not found");
+  }
+  if (!githubLogo || !linkedinLogo || !emailLogo || !themeIcon) {
+    console.error("One or more logo elements not found");
+  }
+
     const lightLogos = {
       github: Githublight,
       linkedin: Linkedinlight,
@@ -71,15 +79,19 @@ function Hero() {
       github: Githubdark,
       linkedin: Linkedindark,
       email: Dark,
-      theme: Themdark,
+      theme: Themedark,
     };
 
     function setTheme(isDark) {
+      if (githubLogo && linkedinLogo && emailLogo && themeIcon) {
       githubLogo.src = isDark ? darkLogos.github : lightLogos.github;
       linkedinLogo.src = isDark ? darkLogos.linkedin : lightLogos.linkedin;
       emailLogo.src = isDark ? darkLogos.email : lightLogos.email;
       themeIcon.src = isDark ? darkLogos.theme : lightLogos.theme;
+    } else {
     }
+
+  }
 
     function toggleTheme() {
       const isDark = document.body.classList.toggle("dark-theme");
@@ -87,31 +99,31 @@ function Hero() {
       setTheme(isDark);
     }
 
-
-    toggleThemeButton.addEventListener("click", () => {
-      const isDark = document.body.classList.toggle("dark-theme");
-      localStorage.setItem("isDark", isDark);
-
-      setTheme(isDark);
-    });
-
     const loadTheme = () => {
       const isDark = localStorage.getItem("isDark") === "true";
-      document.body.classList.toggle("dark-theme", isDark);
+      if (isDark) {
+        document.body.classList.add("dark-theme");
+      } else {
+        document.body.classList.remove("dark-theme");
+      }
       setTheme(isDark);
     };
 
-    toggleThemeButton.addEventListener("click", toggleTheme);
+    if (toggleThemeButton) {
+      toggleThemeButton.addEventListener("click", toggleTheme);
+    } else {
+
+    }
 
     // Load saved theme from local storage or default to light theme
     loadTheme();
 
     return () => {
-      toggleThemeButton.removeEventListener("click", toggleTheme);
+      if (toggleThemeButton) {
+        toggleThemeButton.removeEventListener("click", toggleTheme);
+      }
     };
   }, []);
-
-
 
   return (
     <div>
@@ -307,3 +319,5 @@ function Hero() {
 }
 
 export default Hero;
+
+
