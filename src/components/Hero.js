@@ -8,7 +8,6 @@ import Andrew from '../assets/andrew.ferguson.png';
 import Apple from '../assets/apple-touch-icon.png';
 import Autosleek from '../assets/autosleekproduct.png';
 import Congility from '../assets/congilityportal.png';
-import Portfolio from '../assets/portfoliome.png';
 import Design from '../assets/designproject.png';
 import Dark from '../assets/emaildark.png';
 import Light from '../assets/emaillight.png';
@@ -23,6 +22,7 @@ import Superwlad from '../assets/superwlad.png';
 import Susie from '../assets/susieprofile.png';
 import Themelight from '../assets/themelight.png';
 import Themedark from '../assets/themedark.png';
+import Porfi from '../assets/porfi.png';
 
 function Hero() {
   useEffect(() => {
@@ -224,7 +224,7 @@ function Hero() {
             <img src={Autosleek} alt="AutoSleek" />
             <div className="overlay">
               <h3>AutoSleek</h3>
-              <p className="subtitle">Shopify Custom Liquid, HTML, CSS, JavaScript</p>
+              <p className="subtitle">Shopify Custom Liquid, HTML5, CSS, JavaScript</p>
               <p style={{ fontFamily: "'Playpen Sans', cursive" }}>A full-featured car detailing e-commerce website, designed in Figma and built on Shopify using Liquid for theme customization. Compatible with all mobile devices, it features a beautiful and pleasant user interface. The goal was to create a modern, responsive, and easy-to-use online shopping platform for car detailing enthusiasts.</p>
             </div>
           </a>
@@ -254,17 +254,17 @@ function Hero() {
             <img src={Seraphina} alt="Seraphina" />
             <div className="overlay">
               <h3>Seraphina</h3>
-              <p className="subtitle">Shopify Custom Liquid, HTML, CSS, JavaScript</p>
+              <p className="subtitle">Shopify Custom Liquid, HTML5, CSS, JavaScript</p>
               <p style={{ fontFamily: "'Playpen Sans', cursive" }}>A custom-designed Shopify store for parents and families, built with Liquid for theme customization, featuring premium baby essentials. Fully responsive, it offers a beautiful, user-friendly interface across mobile and desktop devices. The goal was to create an elegant, responsive and easy-to-use online shopping platform.</p>
             </div>
           </a>
         </div>
         <div className="wrapper project-wrapper">
           <a href="https://github.com/SusanaAyala/MyPortfolioReact">
-            <img src={Portfolio} alt="Portfolio" />
+            <img src={Porfi} alt="Portfolio" />
             <div className="overlay">
               <h3>Portfolio</h3>
-              <p className="subtitle">React.js, JavaScript, HTML, CSS</p>
+              <p className="subtitle">React.js, JavaScript, HTML5, CSS</p>
               <p style={{ fontFamily: "'Playpen Sans', cursive" }}>Simple and classic modern portfolio for someone who wants to present themselves as a front-end developer/designer. This is a single-page, responsive portfolio, built with React.js, showcasing work projects, social icons, expertise, and contact information. It is a constantly evolving project that reflects growth and emerging skills.</p>
             </div>
           </a>
@@ -275,7 +275,7 @@ function Hero() {
             <img src={Congility} alt="Congility"/>
             <div className="overlay">
               <h3>Congility</h3>
-              <p className="subtitle">Problem Solving, PostgreSQL, Node.js, Redux, React</p>
+              <p className="subtitle">Problem Solving, WordPress, Express.js, Redux, React</p>
               <p style={{ fontFamily: "'Playpen Sans', cursive" }}>During my role as a web developer, I gained valuable hands-on experience in software engineering, collaborating closely with the product team to design, build, and maintain scalable web applications. Highlights include refactoring reusable ReactJS components, documenting requirements, managing tasks with JIRA, resolving cross-browser issues, and improving overall code quality and efficiency.</p>
             </div>
           </a>
@@ -287,7 +287,7 @@ function Hero() {
         <div className="wrapper">
           <h3>Frontend</h3>
           <article className="frontend-skills">
-            <p>HTML</p>
+            <p>HTML5</p>
             <p>CSS</p>
             <p>SASS</p>
             <p>REACT</p>
