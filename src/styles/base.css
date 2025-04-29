@@ -279,9 +279,9 @@ article p,
   margin-top: 2rem;
 }
 
-.skills {
+/* .skills {
   display: none;
-}
+} */
 
 .wrapper img {
   border-radius: 1rem;
@@ -400,7 +400,7 @@ footer {
     text-align: center;
     font-size: 14px;
     padding: 20px 0px;
-    display: none;
+    /* display: none; */
     background-color: rgb(255, 255, 255);
     margin-top: 20px;
   }

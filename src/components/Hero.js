@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -25,105 +25,29 @@ import Themedark from '../assets/themedark.png';
 import Porfi from '../assets/porfi.png';
 
 function Hero() {
+  // State for managing the active section
+  const [activeSection, setActiveSection] = useState('portfolio'); // Default to 'portfolio'
+
+  // State for managing the theme (light or dark)
+  const [isDark, setIsDark] = useState(false);
+
+  // Load theme from localStorage on component mount
   useEffect(() => {
-    const portfolioBtn = document.getElementById("portfolio-btn");
-    const skillsBtn = document.getElementById("skills-btn");
-    const referenceBtn = document.getElementById("reference-btn");
-
-    const portfolioSection = document.getElementById("portfolio");
-    const skillsSection = document.getElementById("skills");
-    const testimonialsSection = document.getElementById("testimonials");
-
-    portfolioBtn.addEventListener("click", () => {
-      skillsSection.style.display = "none";
-      portfolioSection.style.display = "flex";
-      testimonialsSection.style.display = "none"; // Hide testimonials
-      skillsBtn.classList.remove("active-btn");
-      portfolioBtn.classList.add("active-btn");
-    });
-
-    skillsBtn.addEventListener("click", () => {
-      portfolioSection.style.display = "none";
-      skillsSection.style.display = "flex";
-      testimonialsSection.style.display = "none"; // Hide testimonials
-      portfolioBtn.classList.remove("active-btn");
-      skillsBtn.classList.add("active-btn");
-    });
-
-    referenceBtn.addEventListener("click", () => {
-      testimonialsSection.style.display = "block";
-    });
-
-    const toggleThemeButton = document.getElementById("toggleTheme");
-    const themeIcon = document.querySelector('img[alt="theme icon"]');
-    const githubLogo = document.querySelector('img[alt="github logo"]');
-    const linkedinLogo = document.querySelector('img[alt="linkedin logo"]');
-    const emailLogo = document.querySelector('img[alt="email logo"]');
-
-  // Debugging: Check if all elements are found
-  if (!toggleThemeButton) {
-    console.error("Toggle theme button not found");
-  }
-  if (!githubLogo || !linkedinLogo || !emailLogo || !themeIcon) {
-    console.error("One or more logo elements not found");
-  }
-
-    const lightLogos = {
-      github: Githublight,
-      linkedin: Linkedinlight,
-      email: Light,
-      theme: Themelight,
-    };
-
-    const darkLogos = {
-      github: Githubdark,
-      linkedin: Linkedindark,
-      email: Dark,
-      theme: Themedark,
-    };
-
-    function setTheme(isDark) {
-      if (githubLogo && linkedinLogo && emailLogo && themeIcon) {
-      githubLogo.src = isDark ? darkLogos.github : lightLogos.github;
-      linkedinLogo.src = isDark ? darkLogos.linkedin : lightLogos.linkedin;
-      emailLogo.src = isDark ? darkLogos.email : lightLogos.email;
-      themeIcon.src = isDark ? darkLogos.theme : lightLogos.theme;
-    } else {
-    }
-
-  }
-
-    function toggleTheme() {
-      const isDark = document.body.classList.toggle("dark-theme");
-      localStorage.setItem("isDark", isDark);
-      setTheme(isDark);
-    }
-
-    const loadTheme = () => {
-      const isDark = localStorage.getItem("isDark") === "true";
-      if (isDark) {
-        document.body.classList.add("dark-theme");
-      } else {
-        document.body.classList.remove("dark-theme");
-      }
-      setTheme(isDark);
-    };
-
-    if (toggleThemeButton) {
-      toggleThemeButton.addEventListener("click", toggleTheme);
-    } else {
-
-    }
-
-    // Load saved theme from local storage or default to light theme
-    loadTheme();
-
-    return () => {
-      if (toggleThemeButton) {
-        toggleThemeButton.removeEventListener("click", toggleTheme);
-      }
-    };
+    const savedTheme = localStorage.getItem('isDark') === 'true';
+    setIsDark(savedTheme);
+    document.body.classList.toggle('dark-theme', savedTheme);
   }, []);
+
+  // Update theme in localStorage and DOM when `isDark` changes
+  useEffect(() => {
+    localStorage.setItem('isDark', isDark);
+    document.body.classList.toggle('dark-theme', isDark);
+  }, [isDark]);
+
+  // Toggle theme handler
+  const toggleTheme = () => {
+    setIsDark((prevTheme) => !prevTheme);
+  };
 
   return (
     <div>
@@ -136,7 +60,8 @@ function Hero() {
           <img
             id="toggleTheme"
             className="theme-btn"
-            src={Themelight}
+            src={isDark ? Themedark : Themelight}
+            onClick={toggleTheme}
             alt="theme icon"
           />
           <div className="hero-pic">
@@ -151,13 +76,13 @@ function Hero() {
             <h2>Frontend Developer, 🇬🇧🇪🇨</h2>
             <div className="logo-container">
               <a href="https://github.com/SusanaAyala">
-                <img src={Githublight} alt="github logo" />
+                <img src={isDark ? Githubdark: Githublight} alt="github logo" />
               </a>
               <a href="https://www.linkedin.com/in/susana-ayala-490692220/">
-                <img src={Linkedinlight} alt="linkedin logo" />
+              <img src={isDark ? Linkedindark : Linkedinlight} alt="linkedin logo" />
               </a>
               <a href="mailto:s.ayala@hotmail.co.uk">
-                <img src={Light} alt="email logo" />
+              <img src={isDark ? Dark : Light} alt="email logo" />
               </a>
             </div>
           </div>
@@ -168,9 +93,15 @@ function Hero() {
           Hello! I’m Susie, a passionate front-end developer specializing in React, WordPress, CSS, JavaScript, and Shopify Theme Development. I thrive on crafting engaging, responsive, and seamless designs, working closely with clients to bring their visions to life. Check out my work here👇
         </p>
       </section>
+
+    {/* Section Navigation */}
       <section className="cta">
         <div className="reference-btn">
-          <button className="btn-2 reference-btn" id="reference-btn">References</button>
+          <button
+           className={`btn-2 reference-btn ${activeSection === 'testimonials' ? 'active-btn' : ''}`}
+           onClick={() => setActiveSection('testimonials')}
+           >References
+           </button>
         </div>
         <div className="mail">
           <a href="mailto:s.ayala@hotmail.co.uk">
@@ -178,12 +109,29 @@ function Hero() {
           </a>
         </div>
       </section>
+
       <section className="portfolio-skills">
         <div className="btn-bg">
-          <button className="btn-2 portfolio-btn" id="portfolio-btn">Portfolio</button>
-          <button className="btn-2 skills-btn" id="skills-btn">Skills</button>
+          <button
+           className={`btn-2 portfolio-btn ${activeSection === 'portfolio' ? 'active-btn' : ''}`}
+           onClick={() => setActiveSection('portfolio')}
+           >
+            Portfolio
+          </button>
+          <button
+           className={`btn-2 skills-btn ${activeSection === 'skills' ? 'active-btn' : ''}`}
+           onClick={() => {
+            console.log('Skills button clicked');
+            setActiveSection('skills')
+          }}
+           >
+          Skills
+          </button>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      {activeSection === 'testimonials' && (
       <section className="testimonials" id="testimonials">
         <Swiper
           loop={true}
@@ -218,6 +166,11 @@ function Hero() {
           </SwiperSlide>
         </Swiper>
       </section>
+
+      )}
+
+      {/* Portfolio Section */}
+      {activeSection === 'portfolio' && (
       <section className="portfolio" id="portfolio">
         <div className="wrapper project-wrapper">
           <a href="https://github.com/SusanaAyala/AutoSleek">
@@ -280,10 +233,14 @@ function Hero() {
             </div>
           </a>
         </div>
-
-
       </section>
-      <section className="skills" id="skills">
+      )}
+
+      {/* Skills Section */}
+      {activeSection === 'skills' && (
+      <section className="skills"
+      id="skills">
+        {console.log('Rendering Skills Section')}
         <div className="wrapper">
           <h3>Frontend</h3>
           <article className="frontend-skills">
@@ -311,6 +268,9 @@ function Hero() {
           </article>
         </div>
       </section>
+      )}
+
+
       <footer>
         <p>Susana Ayala &copy; 2025. All Rights Reserved.</p>
       </footer>
