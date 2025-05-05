@@ -1,8 +1,5 @@
 import React from 'react';
-import Hero from "./components/Hero";
-
-
-
+import Hero from "./components/HeroSection/Hero";
 import "./styles/base.css";
 
 function App() {
