@@ -1,9 +1,11 @@
 import React from 'react';
 
-function FooterSection() {
+function FooterSection({ footerData }) {
   return (
     <footer>
-      <p>Susana Ayala &copy; 2025. All Rights Reserved.</p>
+      <p>
+        {footerData.text} &copy; {footerData.year}. {footerData.message}
+      </p>
     </footer>
   );
 }

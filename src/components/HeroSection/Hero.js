@@ -7,6 +7,15 @@ import TestimonialsSection from '../TestimonialsSection/TestimonialsSection';
 import PortfolioSection from '../PortfolioSection/PortfolioSection';
 import SkillsSection from '../SkillsSection/SkillsSection';
 import FooterSection from '../FooterSection/FooterSection';
+import projects from '../../data/projects';
+import testimonials from '../../data/testimonials';
+import skills from '../../data/skills';
+import experienceData from '../../data/experience';
+import heroData from '../../data/hero';
+import ctaData from '../../data/cta';
+import portfolioSkillsData from '../../data/portfolioSkills';
+import footerData from '../../data/footer';
+
 
 function Hero() {
   const [activeSection, setActiveSection] = useState('portfolio');
@@ -27,16 +36,26 @@ function Hero() {
     setIsDark((prevTheme) => !prevTheme);
   };
 
+
+
   return (
     <div>
-      <HeroSection isDark={isDark} toggleTheme={toggleTheme} />
-      <ExperienceSection />
-      <CTASection activeSection={activeSection} setActiveSection={setActiveSection} />
-      <PortfolioSkillsSection activeSection={activeSection} setActiveSection={setActiveSection} />
-      {activeSection === 'testimonials' && <TestimonialsSection />}
-      {activeSection === 'portfolio' && <PortfolioSection />}
-      {activeSection === 'skills' && <SkillsSection />}
-      <FooterSection />
+      <HeroSection isDark={isDark} toggleTheme={toggleTheme} heroData={heroData} />
+      <ExperienceSection description={experienceData.description}/>
+      <CTASection
+      activeSection={activeSection}
+      setActiveSection={setActiveSection}
+      ctaData={ctaData}
+      />
+      <PortfolioSkillsSection
+      activeSection={activeSection}
+      setActiveSection={setActiveSection}
+      portfolioSkillsData={portfolioSkillsData}
+       />
+      {activeSection === 'testimonials' && <TestimonialsSection testimonials={testimonials} />}
+      {activeSection === 'portfolio' && <PortfolioSection projects={projects} />}
+      {activeSection === 'skills' && <SkillsSection skills={skills} />}
+      <FooterSection footerData={footerData} />
     </div>
   );
 }

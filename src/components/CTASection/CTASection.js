@@ -1,19 +1,21 @@
 import React from 'react';
 
-function CTASection({ activeSection, setActiveSection }) {
+function CTASection({ activeSection, setActiveSection, ctaData }) {
   return (
     <section className="cta">
       <div className="reference-btn">
         <button
-          className={`btn-2 reference-btn ${activeSection === 'testimonials' ? 'active-btn' : ''}`}
-          onClick={() => setActiveSection('testimonials')}
+          className={`btn-2 reference-btn ${
+            activeSection === ctaData.buttons[0].section ? 'active-btn' : ''
+          }`}
+          onClick={() => setActiveSection(ctaData.buttons[0].section)}
         >
-          References
+          {ctaData.buttons[0].label}
         </button>
       </div>
       <div className="mail">
-        <a href="mailto:s.ayala@hotmail.co.uk">
-          <button className="btn-2 contact-btn">Contact Me</button>
+        <a href={ctaData.buttons[1].link}>
+          <button className="btn-2 contact-btn">{ctaData.buttons[1].label}</button>
         </a>
       </div>
     </section>
